@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Grid, Button, ButtonGroup } from '@material-ui/core'
+import {Grid, } from '@material-ui/core'
 import PhotoEntry from './photoEntry'
 import TagsBar from './tagsBar'
 const testDB = [{
@@ -8,7 +8,7 @@ const testDB = [{
     dishName:'Katsu',
     description:'it was very tasty',
     image:'https://picsum.photos/200',
-    tags:'spicy',
+    tags:['spicy'],
     link:'www.google.ca',
     price:'$$$',
     fillingness:'100',
@@ -20,7 +20,7 @@ const testDB = [{
     dishName:'Katsu',
     description:'it was very tasty',
     image:'https://picsum.photos/200',
-    tags:['spicy','cool'],
+    tags:['not spicy','cool'],
     link:'www.google.ca',
     price:'$$$',
     fillingness:'100',

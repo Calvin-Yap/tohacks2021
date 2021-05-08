@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
-import Mainpage from './components/mainPage'
+import Questions from './components/questions'
+import MainPage from './components/mainPage'
 ReactDOM.render(
 
-    <Mainpage />,
+  //<Questions/>,
+  <MainPage/>,
 
   document.getElementById('root')
 );

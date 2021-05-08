@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Slider from "@material-ui/core/Slider";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: 300
-  },
-  margin: {
-    height: theme.spacing(1)
-  }
-}));
+import {Typography, FormGroup, FormControlLabel, Checkbox, Slider, Grid, TextField, Button } from '@material-ui/core'
 
 const marks = [
   {
@@ -44,8 +32,9 @@ function valuetext(value) {
 
 const Questions = () => {
   const [value, setValue] = useState([20, 37]);
+   
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
   const [tag, setTag] = useState([]);
@@ -58,8 +47,10 @@ const Questions = () => {
   };
 
   return (
-    <div>
-      <div>
+    <Grid container 
+    justify="center"
+    > 
+      <Grid item xs={8}>
         <Typography id="discrete-slider-custom" gutterBottom>
           How Hungry are you
         </Typography>
@@ -70,9 +61,9 @@ const Questions = () => {
           step={25}
           marks={marks}
         />
-      </div>
+      </Grid>
 
-      <div>
+      <Grid item xs={8}>
         <FormGroup row>
           <FormControlLabel
             control={<Checkbox name="checkedA" onClick={(e)=>handleClick('Savory')} />}
@@ -98,9 +89,9 @@ const Questions = () => {
             label="Anything"
           />
         </FormGroup>
-      </div>
+      </Grid>
 
-      <div>
+      <Grid item xs={8}>
         <Typography id="range-slider" gutterBottom>
           Budget
         </Typography>
@@ -111,8 +102,19 @@ const Questions = () => {
           aria-labelledby="range-slider"
           getAriaValueText={valuetext}
         />
-      </div>
-    </div>
+      </Grid>
+      <Grid item xs={8}>
+        <Typography id="range-slider" gutterBottom>
+          Time Constraint
+        </Typography>
+        <TextField placeholder="Hours" label="Hours"/>
+        <TextField placeholder="Minutes" label="Minutes"/>
+
+      </Grid>
+      <Grid item xs={8}>
+        <Button>Submit</Button>
+      </Grid>
+    </Grid>
   );
 };
 
