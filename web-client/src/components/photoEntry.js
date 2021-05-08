@@ -1,19 +1,8 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Card, CardContent, CardMedia, Typography, CardActionArea, Modal, Grid} from '@material-ui/core';
-function rand() {
-    return Math.round(Math.random() * 20) - 10;
-}
+import '../assets/photoEntry.css'
 
-function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
-    return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
-    };
-}
 
 const useStyles = makeStyles(theme => ({
     modal: {
@@ -31,6 +20,16 @@ const useStyles = makeStyles(theme => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
+    card:{
+        borderRadius:20,
+        width: `15vw`,
+        height: `15vw`,
+        marginBottom:`3%`
+    },
+    cardcontent:{
+        height:10,
+    }
+
 }));
 
 const PhotoEntry=({post})=> {   
@@ -47,17 +46,16 @@ const PhotoEntry=({post})=> {
     };
     
     return (
-        
-        <Card>
-            <CardContent>
-                <Typography>{post.restName}</Typography>
-            </CardContent>
-            <CardActionArea onClick={handleOpen}>
+        <div>
+        <Card className={classes.card} >
+            
+            <CardActionArea  onClick={handleOpen}>
             <CardMedia style={{height: 0,
-                paddingTop: '56.25%',
+                paddingTop: '100%',
                 backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                backgroundBlendMode: 'darken',}} 
+                backgroundBlendMode: 'darken'}} 
                 image={post.image} 
+                
                 title={post.dishName}/>
                 
             </CardActionArea>
@@ -86,8 +84,9 @@ const PhotoEntry=({post})=> {
                     </Grid>
                 </div>
             </Modal>
-            
         </Card>
+        <h7 className="roboto" >{post.dishName}-{post.restName}</h7>
+        </div>
     );
 }
 

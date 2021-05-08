@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {Grid, } from '@material-ui/core'
 import PhotoEntry from './photoEntry'
 import TagsBar from './tagsBar'
+import '../assets/mainPage.css'
+
 const testDB = [{
     id:'1',
     restName:'Richards',
@@ -38,11 +40,11 @@ const MainPage=(props)=> {
 
     return (
         
-        <Grid container spacing={3}>
+        <Grid justify="center" className="background" container spacing={3}>
             <TagsBar/>
                {
                    posts.map((post)=>(
-                       <Grid key={post.id} item xs={4} sm={4}>
+                       <Grid key={post.id} item xs={3} sm={3} spacing={1}>
                          <PhotoEntry post={post}/>
                         </Grid>
                    ))
