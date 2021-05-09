@@ -1,13 +1,10 @@
-import React, {useState} from 'react';
-import {Route, BrowserRouter as Router, Link, Switch, useLocation } from 'react-router-dom'
+import React from 'react';
+import {Route, BrowserRouter as Router, Switch,  } from 'react-router-dom'
 import Questions from './components/questions'
 import MainPage from './components/mainPage'
-import NavBar from './components/navBar'
 import Landing from './components/landing'
-import NavLoginBar from './components/navLoginBar'
 
 function Stack(props) {
-    const [landing, setLanding] = useState(true);
    
     return (
         <Router>

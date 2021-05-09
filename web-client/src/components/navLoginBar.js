@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
         width:`40%`,
         height:'50vh',
         transform: `translateX(-50%)`,
-        backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
         backgroundColor:`#303030`,

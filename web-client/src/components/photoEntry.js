@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Card, CardMedia, Typography, CardActionArea, Modal, Grid} from '@material-ui/core';
 import '../assets/photoEntry.css'
@@ -34,10 +34,8 @@ const useStyles = makeStyles(theme => ({
 
 const PhotoEntry=({post})=> {   
     const classes = useStyles();
-    useEffect(() => {
-        console.log(post)
-    },[]);
-    //console.log(post.tags)
+
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         setOpen(true);

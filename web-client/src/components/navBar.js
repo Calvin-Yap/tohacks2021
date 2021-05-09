@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Grid, Button, Modal } from '@material-ui/core'
+import { Modal } from '@material-ui/core'
 import SearchBar from "material-ui-search-bar";
 import AddIcon from '@material-ui/icons/Add';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -7,6 +7,8 @@ import '../assets/navBar.css'
 import AddEntry from './addEntry'
 import { makeStyles } from '@material-ui/core/styles';
 import {Container, Row, Col} from 'react-bootstrap'
+import {Link} from 'react-router-dom';
+
 const useStyles = makeStyles(theme => ({
     modal: {
         display: 'flex',
@@ -20,7 +22,6 @@ const useStyles = makeStyles(theme => ({
         width:`50%`,
         height:'90vh',
         transform: `translateX(-50%)`,
-        backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
         backgroundColor:`#303030`,
@@ -72,7 +73,7 @@ const NavBar=(props)=> {
             </Modal>
             </Col>
             <Col xs={2}>
-            <button className="endButton" color="primary" >what should i eat? </button>
+            <Link to="/quiz"> <button className="endButton" color="primary" >what should i eat? </button></Link>
             </Col>
 
             </Row>

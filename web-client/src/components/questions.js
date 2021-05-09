@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState } from "react";
 
-import {Typography, FormGroup, FormControlLabel, Checkbox, Slider, Grid, TextField, Button, Paper } from '@material-ui/core'
-import styles from '../assets/questions.css';
+import {Typography, FormGroup, FormControlLabel, Checkbox, Slider,  TextField,  } from '@material-ui/core'
 
 const marks = [
   {
@@ -47,7 +45,7 @@ const Questions = () => {
     });
   };
   const qstyle = {
-    width: '363px',
+    width: '40%',
     height: '321px',
     left: '10px',
     top: '70px',
