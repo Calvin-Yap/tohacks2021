@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Card, CardContent, CardMedia, Typography, CardActionArea, Modal, Grid} from '@material-ui/core';
+import {Card, CardMedia, Typography, CardActionArea, Modal, Grid} from '@material-ui/core';
 import '../assets/photoEntry.css'
 
 
@@ -13,12 +13,12 @@ const useStyles = makeStyles(theme => ({
     paper: {
         position: 'absolute',
         left: `50%`,
-        top: `25%`,
+        top: `15%`,
         width:`75%`,
+        height:'60vh',
         transform: `translateX(-50%)`,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
     },
     card:{
         borderRadius:20,
@@ -34,7 +34,9 @@ const useStyles = makeStyles(theme => ({
 
 const PhotoEntry=({post})=> {   
     const classes = useStyles();
- 
+    useEffect(() => {
+        console.log(post)
+    },[]);
     //console.log(post.tags)
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
@@ -55,7 +57,6 @@ const PhotoEntry=({post})=> {
                 backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 backgroundBlendMode: 'darken'}} 
                 image={post.image} 
-                
                 title={post.dishName}/>
                 
             </CardActionArea>
@@ -66,22 +67,22 @@ const PhotoEntry=({post})=> {
                 onClose={handleClose}
             >
                 <div  className={classes.paper}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={8}>
-                          <img src={post.image} alt="foodImage" />
+                    <Grid container>
+                        <Grid item xs={6}>
+                          <img style={{width:`60vh`,height:`60vh`}}src={post.image} alt="foodImage" />
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography>{post.dishName}</Typography>
-                            <Typography>{post.description}</Typography>
-                            <Typography>{post.tags}</Typography>
-                            <Typography>Fillingness: {post.fillingness}</Typography>
-                            <Typography>Price: {post.price}</Typography>
+                        <Grid item xs={6}>
+                            <Typography className="roboto" style={{color:'black', fontSize:`50px`, fontWeight:900, padding:'4%', marginTop:'8%'}}>{post.dishName}</Typography>
+                            <Typography className="roboto" style={{color:'black', fontSize:`30px`, fontWeight:600, padding:'4%'}}>{post.description}</Typography>
+                            <Typography className="roboto" style={{color:'black', fontSize:`20px`, fontWeight:600, paddingLeft:'4%'}}>{post.tags}</Typography>
+                            <Typography className="roboto" style={{color:'black', fontSize:`20px`, fontWeight:300, paddingLeft:'4%'}}>Fillingness: {post.fillingness}</Typography>
+                            <Typography className="roboto" style={{color:'black', fontSize:`20px`, fontWeight:300, paddingLeft:'4%'}}>Price: ${post.price}</Typography>
                         </Grid> 
                     </Grid>
                 </div>
             </Modal>
         </Card>
-        <h7 className="roboto" >{post.dishName}-{post.restName}</h7>
+        <h2 className="roboto" style={{fontSize:'15px'}}>{post.dishName}-{post.restName}</h2>
         </div>
     );
 }
