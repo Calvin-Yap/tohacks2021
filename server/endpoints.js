@@ -13,11 +13,12 @@ const pool = new Pool({
 
 const getPosts= () => {
     return new Promise(function(resolve, reject) {
-      pool.query('SELECT * FROM fItem ORDER BY id ASC', (error, results) => {
+      pool.query('SELECT * FROM fItem', (error, results) => {
         if (error) {
             console.log(error);
         }
-        console.log(results);
+
+        resolve(results.rows);
       })
     }) 
   };
@@ -28,7 +29,7 @@ const getPosts= () => {
         if (error) {
             console.log(error);
         }
-        console.log(results);
+        response.status(200).json(rows)
       })
     })
   }

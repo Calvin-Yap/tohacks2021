@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Questions from './components/questions'
-import MainPage from './components/mainPage'
-import AddEntry from './components/addEntry'
-ReactDOM.render(
+import Stack from './stack'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-  //<Questions/>,
-  //<MainPage/>,
-  <AddEntry/>,
+ReactDOM.render(
+  
+    <>
+   <Stack/>
+    
+
+    </>,
   document.getElementById('root')
 );
 

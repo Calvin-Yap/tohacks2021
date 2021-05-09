@@ -4,8 +4,15 @@ const app = express()
 const port = 3001;
 const post_model = require('./endpoints')
 const cors = require('cors')
-app.use(cors());
+const bodyParser = require('body-parser')
 
+app.use(cors());
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
 app.use(express.json())
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -15,10 +22,11 @@ app.use(function (req, res, next) {
 });
 
 
-app.get('/', (req, res) => {
+
+app.get('/get', (req, res) => {
     post_model.getPosts()
     .then(response => {
-      res.status(200).send(response);
+      res.status(200).json(response.rows);
     })
     .catch(error => {
       res.status(500).send(error);
