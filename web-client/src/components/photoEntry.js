@@ -67,14 +67,10 @@ const PhotoEntry=({post})=> {
             >
                 <div  className={classes.paper}>
                     <Grid container spacing={3}>
-                        <Grid item xs={6}>
-                            <Typography>{post.dishName}</Typography>
-                            <Typography>{post.description}</Typography>
-                            <Typography>{post.tags}</Typography>
-                            <Typography>Fillingness: {post.fillingness}</Typography>
-                            <Typography>Price: {post.price}</Typography>  
+                        <Grid item xs={8}>
+                          <img src={post.image} alt="foodImage" />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={4}>
                             <Typography>{post.dishName}</Typography>
                             <Typography>{post.description}</Typography>
                             <Typography>{post.tags}</Typography>
